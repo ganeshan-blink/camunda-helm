@@ -43,16 +43,16 @@ spec:
               value: "{{ .Values.database.external.driver }}"
             - name: DB_URL
               value: "{{ .Values.database.external.url }}"
-            - name: DB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.database.external.credentialsSecertName }}
-                  key: DB_USERNAME
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.database.external.credentialsSecertName }}
-                  key: DB_PASSWORD
+            # - name: DB_USERNAME
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: {{ .Values.database.external.credentialsSecertName }}
+            #       key: DB_USERNAME
+            # - name: DB_PASSWORD
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: {{ .Values.database.external.credentialsSecertName }}
+            #       key: DB_PASSWORD
             {{- end }}
           ports:
             - name: {{ .Values.service.portName }}
