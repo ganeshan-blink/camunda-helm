@@ -33,6 +33,9 @@ spec:
         paths:
           {{- range .paths }}
           - path: {{ . }}
+            {{- if .Values.ingress.pathType }}
+            pathType: .Values.ingress.pathType 
+            {{- end }}
             backend:
               serviceName: {{ $fullName }}
               servicePort: {{ $svcPort }}
