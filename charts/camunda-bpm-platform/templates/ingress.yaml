@@ -35,7 +35,7 @@ spec:
           {{- range .paths }}
             {{- if kindIs "string" . }}
             - path: {{ . }}
-              pathType: Prefix
+              pathType: ImplementationSpecific
               backend:
                 service:
                   name: {{ $fullName }}
@@ -72,4 +72,4 @@ spec:
         {{- end -}}
     {{- end }}
   {{- end }}
-  
+
