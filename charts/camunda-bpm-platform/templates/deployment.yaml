@@ -38,6 +38,8 @@ spec:
               value: "{{ .Values.general.debug }}"
             - name: JMX_PROMETHEUS
               value: "{{ .Values.metrics.enabled }}"
+            - name: NEWRELIC_ENVIRONMENT
+              value: "development"
             {{- if .Values.database.external.enabled }}
             - name: DB_DRIVER
               value: "{{ .Values.database.external.driver }}"
