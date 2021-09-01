@@ -26,6 +26,8 @@ database:
     driver: ""
     url: ""
 
+environment: {}
+
 service:
   type: ClusterIP
   port: 8080
