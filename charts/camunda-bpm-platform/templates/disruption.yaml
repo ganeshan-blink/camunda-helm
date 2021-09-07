@@ -1,0 +1,12 @@
+{{ if .Values.scale }}
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ include "camunda-bpm-platform.fullname" . }}
+spec:
+  minAvailable: {{ .Values.scale.minAvailable }}
+  selector:
+    matchLabels:
+      {{- include "camunda-bpm-platform.selectorLabels" . | nindent 6 }}
+{{ end }}
